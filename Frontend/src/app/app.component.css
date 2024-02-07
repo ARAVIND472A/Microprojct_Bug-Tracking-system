@@ -1,0 +1,43 @@
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+  
+  
+   
+    font-size:x-large;
+    font-weight: bold;
+    text-align: center;
+    color:rgb(230, 142, 29);
+    font-family:'Times New Roman', Times, serif;
+  }
+
+
+
+  #sidebar .nav {
+    background-color: #000000;
+    font-size: 50px;
+    color: white;
+    line-height: 50px;
+    text-align: center;
+    justify-content: end;
+  
+  
+  }
+
+  .example-spacer{
+    flex: 1 1 auto;
+  }
+  a{
+    text-decoration: none;
+    font-size: large;
+    color:rgb(124, 125, 202);
+    font-weight:bold;
+  }
+  
+  a:hover{
+
+    color:rgba(26, 29, 207, 0.877);
+    background-color: wheat;
+    border-radius: 20px;
+  }
+  

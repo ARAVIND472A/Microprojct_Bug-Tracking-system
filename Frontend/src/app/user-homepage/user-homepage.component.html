@@ -1,0 +1,276 @@
+<!-- <mat-tab-group dynamicHeight>
+  <mat-tab label="Insert">
+    <div class="example-large-box mat-elevation-z4">
+      <div class="row">
+        <div class="col" id="left">
+          <div>
+            <form [formGroup]="myform" id="myform">
+              <table>
+                <tr>
+                  <td>
+
+
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>User Name</mat-label>
+                      <input matInput type="text" formControlName="userName" name="userName" id="userName">
+                    </mat-form-field>
+
+
+                  </td>
+                  <td>
+
+
+                    <div *ngIf="myform.get('userName')!.touched && myform.get('userName')!.invalid">
+                      <div *ngIf="myform.get('userName')!.hasError('required')">
+                        <font color="red">*User Name Required</font>
+                      </div>
+
+
+                      <div *ngIf="myform.get('userName')!.hasError('pattern')">
+                        <font color="red">*Invalid Username</font>
+                      </div>
+
+
+                    </div>
+                  </td>
+                </tr>
+
+
+                <tr>
+
+
+
+                  <td>
+
+
+                    <mat-form-field class="example-full-width" appearance="outline">
+                      <mat-label>Password</mat-label>
+
+                      <input matInput type="text" formControlName="password" name="password" id="password">
+                    </mat-form-field>
+                  </td>
+
+
+                  <td>
+
+
+                    <div *ngIf="myform.get('password')!.touched && myform.get('password')!.invalid">
+
+
+                      <div *ngIf="myform.get('password')!.hasError('required')">
+                        <font color="red">*Password required</font>
+                      </div>
+
+
+                      <div *ngIf="myform.get('password')!.hasError('pattern')">
+                        <font color="red">*Invalid Password</font>
+                      </div>
+
+
+                    </div>
+                  </td>
+                </tr>
+
+
+              </table>
+
+
+              <button type="button" name="insert" class="btn btn-success" [disabled]="myform.invalid"
+                (click)="insert(myform.value)">Insert
+              </button>
+
+            </form>
+
+
+            <mat-card class="card">
+              <mat-card-content class="cdetail">{{result}}</mat-card-content>
+            </mat-card>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+
+
+</mat-tab-group> -->
+
+
+
+
+<!--*********************************Register bug-->
+
+
+<!-- <a (click)="changeRegisterBug()">Register Bug</a> -->
+<button type="button" (click)="changeRegisterBug()" class="btn btn-primary">Register bug</button>
+<br><br>
+<button type="button" (click)="changeCheckStatus()" class="btn btn-primary">Check status</button>
+<div *ngIf="flag">
+  <div class="wrapper fadeInDown">
+    <div id="formContent"><br>
+      <div>
+
+        <h4>Register Bug</h4>
+      </div>
+
+
+      <!-- Login Form -->
+      <form [formGroup]="myform" id="myform">
+
+        <input type="text" class="fadeIn second" formControlName="bugName" name="userName" id="bugName"
+          placeholder="*Bug name">
+
+        <div *ngIf="myform.get('bugName')!.touched && myform.get('bugName')!.invalid">
+          <div *ngIf="myform.get('bugName')!.hasError('required')">
+            <font color="red">*Bug Name Required</font>
+          </div>
+
+
+          <div *ngIf="myform.get('bugName')!.hasError('pattern')">
+            <font color="red">*Invalid Bug Name</font>
+          </div>
+        </div>
+
+        <input type="text" class="fadeIn second" formControlName="userName" name="userName" id="userName"
+          placeholder="*User name">
+
+        <div *ngIf="myform.get('userName')!.touched && myform.get('userName')!.invalid">
+          <div *ngIf="myform.get('userName')!.hasError('required')">
+            <font color="red">*User Name Required</font>
+          </div>
+
+
+          <div *ngIf="myform.get('userName')!.hasError('pattern')">
+            <font color="red">*Invalid Username</font>
+          </div>
+        </div>
+
+
+        <input type="text" class="fadeIn third" formControlName="description" name="description" id="description"
+          placeholder="*description">
+
+
+
+
+        <div *ngIf="myform.get('description')!.touched && myform.get('description')!.invalid">
+
+
+          <div *ngIf="myform.get('description')!.hasError('required')">
+            <font color="red">*Description required</font>
+          </div>
+
+
+          <div *ngIf="myform.get('description')!.hasError('pattern')">
+            <font color="red">*Invalid Description</font>
+          </div>
+
+
+        </div>
+        <br>
+        <br>
+
+        <!-- <button type="button" name="insert" class="btn btn-success" [disabled]="myform.invalid"
+                  (click)="login(myform.value)">Login
+                </button> -->
+        <input type="button" name="insert" class="fadeIn fourth" [disabled]="myform.invalid"
+          (click)="insert(myform.value)" value="Register bug">
+      </form>
+
+      <mat-card class="card">
+        <mat-card-content class="cdetail">{{result}}</mat-card-content>
+      </mat-card>
+
+
+      <!-- Remind Passowrd -->
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<!--Get Status-->
+<div *ngIf="flag1">
+  <div class="wrapper fadeInDown">
+    <div id="formContent"><br>
+      <div>
+
+        <h4>Bug Status</h4>
+      </div>
+
+
+      <!-- Login Form -->
+      <form [formGroup]="myform1" id="myform1">
+
+        <input type="text" class="fadeIn second" formControlName="userName" name="userName" id="userName"
+          placeholder="*User name">
+
+        <div *ngIf="myform.get('userName')!.touched && myform.get('userName')!.invalid">
+          <div *ngIf="myform.get('userName')!.hasError('required')">
+            <font color="red">*User Name Required</font>
+          </div>
+
+
+          <div *ngIf="myform.get('userName')!.hasError('pattern')">
+            <font color="red">*Invalid Username</font>
+          </div>
+        </div>
+
+
+
+
+
+        <input type="button" name="insert" class="fadeIn fourth" [disabled]="myform1.invalid"
+          (click)="checkStatus(myform1.value)" value="check Status">
+      </form>
+
+
+
+
+
+
+    </div>
+  </div>
+  <!--Check Status-->
+  <br>
+  <br>
+
+<div class="mydiv">
+    <table class="table table-striped table-bordered">
+      <thead>
+
+        <tr scope="row">
+
+          <td scope="col">Bug Id</td>
+          <td scope="col">Bug Name</td>
+          <td scope="col">User Name</td>
+          <td scope="col">Description</td>
+          <td scope="col">Status</td>
+          <td scope="col">Solution</td>
+
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let bug of bugList" scope="row">
+
+          <td scope="col">{{bug.bugId}}</td>
+          <td scope="col">{{bug.bugName}}</td>
+          <td scope="col">{{bug.userName}}</td>
+          <td scope="col">{{bug.description}}</td>
+          <td scope="col">{{bug.status}}</td>
+          <td scope="col">{{bug.solution}}</td>
+
+
+
+
+
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  </div>

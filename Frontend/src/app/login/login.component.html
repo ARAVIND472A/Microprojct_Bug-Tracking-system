@@ -1,0 +1,165 @@
+<!-- <mat-tab-group dynamicHeight>
+    <mat-tab label="Login">
+      <div class="example-large-box mat-elevation-z4">
+        <div class="row">
+          <div class="col" id="left">
+            <div>
+              <form [formGroup]="myform" id="myform">
+                <table>
+                  <tr>
+                    <td>
+  
+  
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>User Name</mat-label>
+                        <input matInput type="text" formControlName="userName" name="userName" id="userName">
+                      </mat-form-field>
+  
+  
+                    </td>
+                    <td>
+  
+  
+                      <div *ngIf="myform.get('userName')!.touched && myform.get('userName')!.invalid">
+                        <div *ngIf="myform.get('userName')!.hasError('required')">
+                          <font color="red">*User Name Required</font>
+                        </div>
+  
+  
+                        <div *ngIf="myform.get('userName')!.hasError('pattern')">
+                          <font color="red">*Invalid Username</font>
+                        </div>
+  
+  
+                      </div>
+                    </td>
+                  </tr>
+  
+  
+                  <tr>
+  
+  
+  
+                    <td>
+  
+  
+                      <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Password</mat-label>
+  
+                        <input matInput type="text" formControlName="password" name="password" id="password">
+                      </mat-form-field>
+                    </td>
+  
+  
+                    <td>
+  
+  
+                      <div *ngIf="myform.get('password')!.touched && myform.get('password')!.invalid">
+  
+  
+                        <div *ngIf="myform.get('password')!.hasError('required')">
+                          <font color="red">*Password required</font>
+                        </div>
+  
+  
+                        <div *ngIf="myform.get('password')!.hasError('pattern')">
+                          <font color="red">*Invalid Password</font>
+                        </div>
+  
+  
+                      </div>
+                    </td>
+                  </tr>
+  
+  
+                </table>
+  
+  
+                <button type="button" name="insert" class="btn btn-success" [disabled]="myform.invalid"
+                  (click)="login(myform.value)">Login
+                </button>
+  
+              </form>
+  
+  
+              <mat-card class="card">
+                <mat-card-content class="cdetail">{{result}}</mat-card-content>
+              </mat-card>
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  
+  </mat-tab-group> -->
+
+  
+  
+  <div class="wrapper fadeInDown">
+    <div id="formContent"><br>
+      <div>
+
+        <h4>Log In</h4>
+      </div>
+      
+  
+      <!-- Login Form -->
+      <form  [formGroup]="myform" id="myform">
+
+        <input type="text" class="fadeIn second" formControlName="userName" name="userName" id="userName" placeholder="*User name">
+
+        <div *ngIf="myform.get('userName')!.touched && myform.get('userName')!.invalid">
+            <div *ngIf="myform.get('userName')!.hasError('required')">
+              <font color="red">*User Name Required</font>
+            </div>
+
+
+            <div *ngIf="myform.get('userName')!.hasError('pattern')">
+              <font color="red">*Invalid Username</font>
+            </div>
+            </div>
+
+
+        <input type="text"  class="fadeIn third" formControlName="password" name="password" id="password" placeholder="*Password">
+   
+
+        
+  
+        <div *ngIf="myform.get('password')!.touched && myform.get('password')!.invalid">
+  
+  
+            <div *ngIf="myform.get('password')!.hasError('required')">
+              <font color="red">*Password required</font>
+            </div>
+
+
+            <div *ngIf="myform.get('password')!.hasError('pattern')">
+              <font color="red">*Invalid Password</font>
+            </div>
+
+
+          </div>
+          <br>
+          <br>
+
+          <!-- <button type="button" name="insert" class="btn btn-success" [disabled]="myform.invalid"
+                  (click)="login(myform.value)">Login
+                </button> -->
+        <input type="button"  name="insert" class="fadeIn fourth"  [disabled]="myform.invalid" (click)="login(myform.value)"value="Log In">
+      </form>
+
+      <mat-card class="card">
+        <mat-card-content class="cdetail">{{result}}</mat-card-content>
+      </mat-card>
+
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <P >Register Now!</P>
+        <a><button (click)="goLogIn()" class="btn btn-primary">Register</button></a>
+      </div>
+  
+    </div>
+  </div>

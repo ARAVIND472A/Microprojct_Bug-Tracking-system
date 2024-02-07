@@ -1,0 +1,214 @@
+
+    
+    
+  
+
+
+
+<!--Resolve Bug-->
+
+<button  type="button"(click)="openBug()" class="btn btn-primary">Resolve bug</button>
+<br>
+<br>
+
+
+<div *ngIf="flag">
+<div class="wrapper fadeInDown">
+    <div id="formContent"><br>
+      <div>
+  
+        <h4>Resolving Bug</h4>
+      </div>
+      
+  
+      <!-- Login Form -->
+      <form  [formGroup]="myform" id="myform">
+
+ <!--bugId-->
+
+        <input type="text" class="fadeIn second" formControlName="bugId" name="userName" id="bugId" placeholder="*Bug Id">
+  
+        <div *ngIf="myform.get('bugId')!.touched && myform.get('bugId')!.invalid">
+            <div *ngIf="myform.get('bugId')!.hasError('required')">
+              <font color="red">*Bug Id </font>
+            </div>
+  
+  
+            <div *ngIf="myform.get('bugId')!.hasError('pattern')">
+              <font color="red">*Invalid Bug Id</font>
+            </div>
+            </div>
+  
+         <!--bugName-->
+
+        <input type="text" class="fadeIn second" formControlName="bugName" name="userName" id="bugName" placeholder="*Bug name">
+  
+        <div *ngIf="myform.get('bugName')!.touched && myform.get('bugName')!.invalid">
+            <div *ngIf="myform.get('bugName')!.hasError('required')">
+              <font color="red">*Bug Name Required</font>
+            </div>
+  
+  
+            <div *ngIf="myform.get('bugName')!.hasError('pattern')">
+              <font color="red">*Invalid Bug Name</font>
+            </div>
+            </div>
+  
+  <!--description-->
+
+        <input type="text"  class="fadeIn third" formControlName="description" name="description" id="" placeholder="*description">
+   
+  
+        
+  
+        <div *ngIf="myform.get('description')!.touched && myform.get('description')!.invalid">
+  
+  
+            <div *ngIf="myform.get('description')!.hasError('required')">
+              <font color="red">*status required</font>
+            </div>
+  
+  
+            <div *ngIf="myform.get('description')!.hasError('pattern')">
+              <font color="red">*Invalid status</font>
+            </div>
+  
+  
+          </div>
+          
+
+           <!--userName-->
+
+          <input type="text"  class="fadeIn third" formControlName="userName" name="userName" id="userName"placeholder="*userName">
+
+          <div *ngIf="myform.get('userName')!.touched && myform.get('userName')!.invalid">
+            <div *ngIf="myform.get('userName')!.hasError('required')">
+              <font color="red">*User Name Required</font>
+            </div>
+  
+  
+            <div *ngIf="myform.get('userName')!.hasError('pattern')">
+              <font color="red">*Invalid Username</font>
+            </div>
+            </div>
+  
+
+
+           <!--status-->
+          <input type="text"  class="fadeIn third" formControlName="status" name="status" id="status" placeholder="*status">
+   
+  
+        
+  
+        <div *ngIf="myform.get('status')!.touched && myform.get('status')!.invalid">
+  
+  
+            <div *ngIf="myform.get('status')!.hasError('required')">
+              <font color="red">*Status required</font>
+            </div>
+  
+  
+            <div *ngIf="myform.get('status')!.hasError('pattern')">
+              <font color="red">*Invalid status</font>
+            </div>
+  
+  
+          </div>
+
+          <!--solution-->
+
+          <input type="text"  class="fadeIn third" formControlName="solution" name="solution" id="solution" placeholder="*solution">
+   
+  
+        
+  
+          <div *ngIf="myform.get('solution')!.touched && myform.get('solution')!.invalid">
+    
+    
+              <div *ngIf="myform.get('solution')!.hasError('required')">
+                <font color="red">*Status required</font>
+              </div>
+    
+    
+              <div *ngIf="myform.get('solution')!.hasError('pattern')">
+                <font color="red">*Invalid status</font>
+              </div>
+    
+    
+            </div>
+        
+  
+          <!-- <button type="button" name="insert" class="btn btn-success" [disabled]="myform.invalid"
+                  (click)="login(myform.value)">Login
+                </button> -->
+        <input type="button"  name="insert" class="fadeIn fourth"  [disabled]="myform.invalid" (click)="update(myform.value)"value="Resolve bug">
+      </form>
+  
+      <mat-card class="card">
+        <mat-card-content class="cdetail">{{result}}</mat-card-content>
+      </mat-card>
+  
+  
+      <!-- Remind Passowrd -->
+      
+  
+    </div>
+  </div>
+
+</div>
+<br>
+
+
+<!--View Bug-->
+<button  type="button"(click)="viewBug()" class="btn btn-primary">View bug</button>
+<br>
+<br>
+<div class="table" *ngIf="flag1">
+
+  <div>
+    <h4 align="center">BUG DETAILS:</h4><br>
+    <br>
+    <table class="table table-striped table-bordered">
+      <thead>
+
+        <tr scope="row">
+
+          <td scope="col">Bug Id</td>
+          <td scope="col">Bug Name</td>
+          <td scope="col">User Name</td>
+          <td scope="col">Description</td>
+         <td scope="col">Status</td>
+          <td scope="col">Solution</td>
+          <td scope="col">Resolve bug</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let bug of bugList" scope="row">
+
+          <td scope="col">{{bug.bugId}}</td>
+          <td scope="col">{{bug.bugName}}</td>
+          <td scope="col">{{bug.userName}}</td>
+          <td scope="col">{{bug.description}}</td>
+          <td scope="col">{{bug.status}}</td>
+          <td scope="col">{{bug.solution}}</td>
+          <td scope="col">  <button  type="button"(click)="openBug()" class="btn btn-primary">Resolve bug</button></td>
+
+
+
+          
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+  
+
+
+
+  
