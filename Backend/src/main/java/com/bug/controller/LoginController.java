@@ -22,7 +22,6 @@ public class LoginController {
 	LoginService loginService;
 	
 	@PostMapping("/login")
-	
 	public ResponseEntity<?> performResgister(@RequestBody User user) {
 
 		Response res=loginService.VerifyUser(user);
