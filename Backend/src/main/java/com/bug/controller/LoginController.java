@@ -34,8 +34,6 @@ public class LoginController {
 	
 	}
 
-	public void display{
-		Sysytem.out.println(bug_id);
-	}
+	
 
 }
