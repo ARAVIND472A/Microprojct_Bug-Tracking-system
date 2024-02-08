@@ -63,12 +63,11 @@ public class BugController {
 		List<Bug> bugList=bugService.getBug(userName);
 		return bugList;
 	}
+	
+	
 
 
 }
 
-//@GetMapping("/View/{userName}")
-//public Bug viewDetail(@PathVariable ("userName") String  userName) {
-//	Bug bug=bugService.getBug(userName);
-//	return bug;
-//}
+
+
