@@ -26,9 +26,7 @@ public class UserController {
 	
 	@PostMapping("/Register")
 	public String performResgister(@RequestBody User user) {
-//		User use=new User();
-//		use.setUserName(user.getUserName());
-//		use.setPassword(user.getPassword());
+		
 		user.setUserType("User");
 		service.registerUser(user);
 		return"inserted";
