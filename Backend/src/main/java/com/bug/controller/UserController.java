@@ -35,4 +35,8 @@ public class UserController {
 		
 	}
 
+	public void performRegister()
+	{
+	}
+
 }
